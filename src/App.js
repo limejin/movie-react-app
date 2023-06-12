@@ -1,11 +1,11 @@
 import Header from './Header';
-import LeftSide from './LeftSide';
+import Main from './Main';
 
 const App = () => {
   return (
     <>
       <Header />
-      <LeftSide />
+      <Main />
     </>
   );
 };
