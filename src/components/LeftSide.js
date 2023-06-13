@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from '../components/Modal';
 
-const LeftSide = ({ movieData }) => {
+const LeftSide = ({ movieDataLive, setMovieDataLive }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleAddMovieButton = () => {
@@ -18,11 +18,15 @@ const LeftSide = ({ movieData }) => {
       >
         추가
       </button>
-      {movieData.map(movie => (
+      {movieDataLive.map(movie => (
         <span key={movie.id}>{movie.name}</span>
       ))}
       {showModal && (
-        <Modal setShowModal={setShowModal} movieLength={movieData.length} />
+        <Modal
+          setShowModal={setShowModal}
+          movieLength={movieDataLive.length}
+          setMovieDataLive={setMovieDataLive}
+        />
       )}
     </div>
   );

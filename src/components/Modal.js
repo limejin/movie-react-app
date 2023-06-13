@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Modal = ({ setShowModal, movieLength }) => {
+const Modal = ({ setShowModal, movieLength, setMovieDataLive }) => {
   const [movieName, setMovieName] = useState('');
   const [movieReview, setMovieReview] = useState('');
   const [movieImg, setMovieImg] = useState('');
@@ -37,7 +37,14 @@ const Modal = ({ setShowModal, movieLength }) => {
       }),
     }).then(res => {
       if (res.ok) {
-        //alert('영화평이 추가되었습니다!🎉');
+        alert('영화평이 추가되었습니다!🎉');
+        fetch('https://reminiscent-friendly-maize.glitch.me/MOVIE_DATA')
+          .then(res => {
+            return res.json();
+          })
+          .then(data => {
+            setMovieDataLive(data);
+          });
         setShowModal(false);
       }
     });

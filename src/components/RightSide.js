@@ -1,7 +1,7 @@
-const RightSide = ({ movieData }) => {
+const RightSide = ({ movieDataLive }) => {
   return (
     <section className='container' id='container'>
-      {movieData.map(movie => (
+      {movieDataLive.map(movie => (
         <div className='card' key={movie.id}>
           <img src={movie.img} alt={movie.name} />
           <span className='movie-title'>&lt;{movie.name}&gt;</span>
